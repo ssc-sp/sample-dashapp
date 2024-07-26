@@ -27,7 +27,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/sean-stilwell/sample-dashapp:latest
+          tags: ghcr.io/ssc-sp/sample-dashapp:latest
 
       - name: Logout of GitHub Container Registry
         run: docker logout ghcr.io
