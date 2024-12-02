@@ -7,8 +7,8 @@ import os
 
 # Initialize the Dash app
 app = dash.Dash(__name__,
-                requests_pathname_prefix="/app/SCAWWAS/",
-                routes_pathname_prefix="/app/SCAWWAS/")
+                requests_pathname_prefix="/app/DW1/",
+                routes_pathname_prefix="/app/DW1/")
 
 error_occur = False
 
@@ -17,10 +17,10 @@ try:
 
     # Retrieve the secrets containing DB connection details
     DB_NAME = "fsdh"
-    DB_HOST = 'fsdh-scawwas-psql-poc.postgres.database.azure.com'
+    DB_HOST = os.getenv('DATAHUB_PSQL_SERVER')
     print(f"DB_HOST is {DB_HOST}")
-    DB_USER = 'fsdhadmin'
-    DB_PASS = ''
+    DB_USER = os.getenv('DATAHUB_PSQL_USER')
+    DB_PASS = os.getenv('DATAHUB_PSQL_PASSWORD')
 except Exception as e:
     error_occur = True
     print(f"An error occurred: {e} | Une erreur s'est produite: {e}")
